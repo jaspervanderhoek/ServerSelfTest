@@ -1,0 +1,16 @@
+javasource/*/proxies/*
+javasource/appcloudservices/
+javasource/system/
+javasource/core/
+deployment/
+.classpath
+.project
+*.launch
+*.tmp
+*.lock
+*.bak
+.idea/
+.mendix-cache/
+*DS_Store*
+GPUCache/
+.svn/

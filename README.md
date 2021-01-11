@@ -15,10 +15,7 @@ None
 This module runs a number of tests with common issues or challenges when configuring your own server. It evaluates your server information and presents that to the user to validate if everything is setup correctly (an X somewhere doesn't guarantee a problem).
 
 From the top down the following tests are run:
- - Application URL
- - HTTPS Applied
- - 
- 
+
 | Test | Description |
 | :---: | :---: |
 | Application URL | Shows the url as configured in the applications configuration settings, this url will be used by the build in integration servers and several appstore modules. This should show the same url as you expect to present to your end-users (or systems). |

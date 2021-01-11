@@ -27,7 +27,7 @@ export async function JavaScript_TestLogin(appURL) {
 				'Accept': 'application/json, text/plain, */*',
 				'Content-Type': 'application/json'
 			},
-			body: 'json=' + encodeURIComponent(msg) 
+			body: msg 
 		})
 		.then( function(loginResult) {
 			if( loginResult.status == 200 ) {

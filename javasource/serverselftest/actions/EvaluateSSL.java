@@ -31,7 +31,7 @@ public class EvaluateSSL extends CustomJavaAction<java.lang.Boolean>
 	@java.lang.Override
 	public java.lang.Boolean executeAction() throws Exception
 	{
-		this.SelfTestParam = __SelfTestParam == null ? null : serverselftest.proxies.SelfTestResult.initialize(getContext(), __SelfTestParam);
+		this.SelfTestParam = this.__SelfTestParam == null ? null : serverselftest.proxies.SelfTestResult.initialize(getContext(), __SelfTestParam);
 
 		// BEGIN USER CODE
 		
@@ -74,6 +74,7 @@ public class EvaluateSSL extends CustomJavaAction<java.lang.Boolean>
 
 	/**
 	 * Returns a string representation of this action
+	 * @return a string representation of this action
 	 */
 	@java.lang.Override
 	public java.lang.String toString()

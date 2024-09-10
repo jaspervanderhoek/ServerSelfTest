@@ -28,7 +28,7 @@ public class GetApplicationURL extends CustomJavaAction<java.lang.String>
 	@java.lang.Override
 	public java.lang.String executeAction() throws Exception
 	{
-		this.Test = __Test == null ? null : serverselftest.proxies.SelfTestResult.initialize(getContext(), __Test);
+		this.Test = this.__Test == null ? null : serverselftest.proxies.SelfTestResult.initialize(getContext(), __Test);
 
 		// BEGIN USER CODE
 		return Core.getConfiguration().getApplicationRootUrl();
@@ -37,6 +37,7 @@ public class GetApplicationURL extends CustomJavaAction<java.lang.String>
 
 	/**
 	 * Returns a string representation of this action
+	 * @return a string representation of this action
 	 */
 	@java.lang.Override
 	public java.lang.String toString()

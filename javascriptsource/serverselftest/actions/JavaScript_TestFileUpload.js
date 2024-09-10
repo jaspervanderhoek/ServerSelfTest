@@ -5,6 +5,7 @@
 // - the code between BEGIN USER CODE and END USER CODE
 // - the code between BEGIN EXTRA CODE and END EXTRA CODE
 // Other code you write will be lost the next time you deploy the project.
+import "mx-global";
 import { Big } from "big.js";
 
 // BEGIN EXTRA CODE
@@ -21,7 +22,7 @@ export async function JavaScript_TestFileUpload(appURL, fileObject, fileNameToDo
 
 	try {
 		var url = '/'+fileNameToDownload;
-		return fetch(url).then(response => {
+		return await fetch(url).then(response => {
 			if (response.ok) {
 				return response.text().then(file => {
 					var blob = new Blob([file], { type: 'text/plain' });

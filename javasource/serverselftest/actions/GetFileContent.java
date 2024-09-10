@@ -31,7 +31,7 @@ public class GetFileContent extends CustomJavaAction<java.lang.Boolean>
 	@java.lang.Override
 	public java.lang.Boolean executeAction() throws Exception
 	{
-		this.FileObject = __FileObject == null ? null : system.proxies.FileDocument.initialize(getContext(), __FileObject);
+		this.FileObject = this.__FileObject == null ? null : system.proxies.FileDocument.initialize(getContext(), __FileObject);
 
 		// BEGIN USER CODE
 		
@@ -49,6 +49,7 @@ public class GetFileContent extends CustomJavaAction<java.lang.Boolean>
 
 	/**
 	 * Returns a string representation of this action
+	 * @return a string representation of this action
 	 */
 	@java.lang.Override
 	public java.lang.String toString()

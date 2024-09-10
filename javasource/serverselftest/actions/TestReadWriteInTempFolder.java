@@ -36,7 +36,7 @@ public class TestReadWriteInTempFolder extends CustomJavaAction<java.lang.Boolea
 	@java.lang.Override
 	public java.lang.Boolean executeAction() throws Exception
 	{
-		this.TestDetailObject = __TestDetailObject == null ? null : serverselftest.proxies.TestDetail.initialize(getContext(), __TestDetailObject);
+		this.TestDetailObject = this.__TestDetailObject == null ? null : serverselftest.proxies.TestDetail.initialize(getContext(), __TestDetailObject);
 
 		// BEGIN USER CODE
 
@@ -83,6 +83,7 @@ public class TestReadWriteInTempFolder extends CustomJavaAction<java.lang.Boolea
 
 	/**
 	 * Returns a string representation of this action
+	 * @return a string representation of this action
 	 */
 	@java.lang.Override
 	public java.lang.String toString()

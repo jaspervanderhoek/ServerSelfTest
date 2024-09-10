@@ -5,6 +5,7 @@
 // - the code between BEGIN USER CODE and END USER CODE
 // - the code between BEGIN EXTRA CODE and END EXTRA CODE
 // Other code you write will be lost the next time you deploy the project.
+import "mx-global";
 import { Big } from "big.js";
 
 // BEGIN EXTRA CODE
@@ -27,7 +28,8 @@ export async function JavaScript_TestLogin(appURL) {
 				'Accept': 'application/json, text/plain, */*',
 				'Content-Type': 'application/json'
 			},
-			body: msg 
+			body: msg,
+       		'credentials': 'omit'
 		})
 		.then( function(loginResult) {
 			if( loginResult.status == 200 ) {
@@ -36,15 +38,16 @@ export async function JavaScript_TestLogin(appURL) {
 			else
 				return false; 
 		})
-		.catch(() => {
-			debugger;
+		.catch((e) => {
+			console.warn("Error while logging in", e);
 			return false;
 		});
 	}
 	catch( e ) {
+		console.warn("Error while logging in", e);
 		result = false;
 	}
 
-	return result;
+	return await result;
 	// END USER CODE
 }

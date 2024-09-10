@@ -24,20 +24,24 @@ import com.mendix.systemwideinterfaces.core.IMendixObject;
 
 public class TestReadWriteInTempFolder extends CustomJavaAction<java.lang.Boolean>
 {
-	private IMendixObject __TestDetailObject;
-	private serverselftest.proxies.TestDetail TestDetailObject;
+	/** @deprecated use TestDetailObject.getMendixObject() instead. */
+	@java.lang.Deprecated(forRemoval = true)
+	private final IMendixObject __TestDetailObject;
+	private final serverselftest.proxies.TestDetail TestDetailObject;
 
-	public TestReadWriteInTempFolder(IContext context, IMendixObject TestDetailObject)
+	public TestReadWriteInTempFolder(
+		IContext context,
+		IMendixObject _testDetailObject
+	)
 	{
 		super(context);
-		this.__TestDetailObject = TestDetailObject;
+		this.__TestDetailObject = _testDetailObject;
+		this.TestDetailObject = _testDetailObject == null ? null : serverselftest.proxies.TestDetail.initialize(getContext(), _testDetailObject);
 	}
 
 	@java.lang.Override
 	public java.lang.Boolean executeAction() throws Exception
 	{
-		this.TestDetailObject = this.__TestDetailObject == null ? null : serverselftest.proxies.TestDetail.initialize(getContext(), __TestDetailObject);
-
 		// BEGIN USER CODE
 
 		File file = new File(Core.getConfiguration().getTempPath().getAbsolutePath() + "/" + Core.getXASId() + "_test.txt");

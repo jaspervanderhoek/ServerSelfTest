@@ -16,20 +16,24 @@ import com.mendix.systemwideinterfaces.core.IMendixObject;
 
 public class GetApplicationURL extends CustomJavaAction<java.lang.String>
 {
-	private IMendixObject __Test;
-	private serverselftest.proxies.SelfTestResult Test;
+	/** @deprecated use Test.getMendixObject() instead. */
+	@java.lang.Deprecated(forRemoval = true)
+	private final IMendixObject __Test;
+	private final serverselftest.proxies.SelfTestResult Test;
 
-	public GetApplicationURL(IContext context, IMendixObject Test)
+	public GetApplicationURL(
+		IContext context,
+		IMendixObject _test
+	)
 	{
 		super(context);
-		this.__Test = Test;
+		this.__Test = _test;
+		this.Test = _test == null ? null : serverselftest.proxies.SelfTestResult.initialize(getContext(), _test);
 	}
 
 	@java.lang.Override
 	public java.lang.String executeAction() throws Exception
 	{
-		this.Test = this.__Test == null ? null : serverselftest.proxies.SelfTestResult.initialize(getContext(), __Test);
-
 		// BEGIN USER CODE
 		return Core.getConfiguration().getApplicationRootUrl();
 		// END USER CODE

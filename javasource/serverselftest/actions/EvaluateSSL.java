@@ -19,20 +19,24 @@ import serverselftest.proxies.TestResult;
 
 public class EvaluateSSL extends CustomJavaAction<java.lang.Boolean>
 {
-	private IMendixObject __SelfTestParam;
-	private serverselftest.proxies.SelfTestResult SelfTestParam;
+	/** @deprecated use SelfTestParam.getMendixObject() instead. */
+	@java.lang.Deprecated(forRemoval = true)
+	private final IMendixObject __SelfTestParam;
+	private final serverselftest.proxies.SelfTestResult SelfTestParam;
 
-	public EvaluateSSL(IContext context, IMendixObject SelfTestParam)
+	public EvaluateSSL(
+		IContext context,
+		IMendixObject _selfTestParam
+	)
 	{
 		super(context);
-		this.__SelfTestParam = SelfTestParam;
+		this.__SelfTestParam = _selfTestParam;
+		this.SelfTestParam = _selfTestParam == null ? null : serverselftest.proxies.SelfTestResult.initialize(getContext(), _selfTestParam);
 	}
 
 	@java.lang.Override
 	public java.lang.Boolean executeAction() throws Exception
 	{
-		this.SelfTestParam = this.__SelfTestParam == null ? null : serverselftest.proxies.SelfTestResult.initialize(getContext(), __SelfTestParam);
-
 		// BEGIN USER CODE
 		
 		String appURL = this.SelfTestParam.getApplicationURL();

@@ -19,20 +19,24 @@ import com.mendix.webui.CustomJavaAction;
 
 public class GetFileContent extends CustomJavaAction<java.lang.Boolean>
 {
-	private IMendixObject __FileObject;
-	private system.proxies.FileDocument FileObject;
+	/** @deprecated use FileObject.getMendixObject() instead. */
+	@java.lang.Deprecated(forRemoval = true)
+	private final IMendixObject __FileObject;
+	private final system.proxies.FileDocument FileObject;
 
-	public GetFileContent(IContext context, IMendixObject FileObject)
+	public GetFileContent(
+		IContext context,
+		IMendixObject _fileObject
+	)
 	{
 		super(context);
-		this.__FileObject = FileObject;
+		this.__FileObject = _fileObject;
+		this.FileObject = _fileObject == null ? null : system.proxies.FileDocument.initialize(getContext(), _fileObject);
 	}
 
 	@java.lang.Override
 	public java.lang.Boolean executeAction() throws Exception
 	{
-		this.FileObject = this.__FileObject == null ? null : system.proxies.FileDocument.initialize(getContext(), __FileObject);
-
 		// BEGIN USER CODE
 		
 		InputStream inputStream = Core.getFileDocumentContent(getContext(), __FileObject);
